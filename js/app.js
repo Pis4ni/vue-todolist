@@ -45,5 +45,12 @@ createApp({
     removeTask(index){
         this.list.splice(index,1)
     },
+    handleKeyDown(event) {
+
+        if (event.key == 'Enter' || event.code == 'Enter') this.addNewTask() 
+    }
+  },
+  created() {
+    window.addEventListener('keydown', this.handleKeyDown);
   },
 }).mount('#app')
