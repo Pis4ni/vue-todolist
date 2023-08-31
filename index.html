@@ -53,11 +53,19 @@
             <ul class="p-0">
                 <li v-for="(task,index) in list" class="mb-1">
                     <!-- task name -->
-                    <span class="">
+                    <span :class="{ 'done': list[index].done }">
                         {{list[index].text}}
                     </span>
-                    <!-- delete taks -->
-                    <i class="fa-regular fa-trash-can text-danger"></i>
+
+                    
+                    <div class="task-actions">
+                        
+                        <!-- done taks -->
+                        <i @click="taskDone(index)" class="fa-solid fa-check text-success m-1"></i>
+                        
+                        <!-- delete taks -->
+                        <i @click="removeTask(index)" class="fa-regular fa-trash-can text-danger m-1"></i>
+                    </div>
                     
                     
                 </li>
